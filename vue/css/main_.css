@@ -1,0 +1,11 @@
+.main{
+    height: 100%;
+}
+.contain{
+    height: 60%;
+    overflow:scroll;
+}
+.input_data{
+    height: 60%;
+    overflow:scroll;
+}

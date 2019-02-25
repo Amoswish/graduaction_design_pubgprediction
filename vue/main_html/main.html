@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css"> -->
+    <link rel="stylesheet" href="../muse-ui/material-icons.css">
+    <link rel="stylesheet" href="../muse-ui/muse-ui.css">
+    <link rel="stylesheet" href="../muse-ui/robotoFont_style.css">
+    <link rel="stylesheet" href="../css/main_.css">
+</head>
+<body>
+    <div id="app">
+        <div class="main">
+            <mu-bottom-nav :value.sync="shift" shift color="blue500">
+                    <mu-bottom-nav-item value="input_data" title="input_data" icon="equalizer"></mu-bottom-nav-item>
+                    <mu-bottom-nav-item value="leaderboard" title="leaderboard" icon="books"></mu-bottom-nav-item>
+                    <mu-bottom-nav-item value="laughtpictures" title="laughtpictures" icon="photo"></mu-bottom-nav-item>
+                </mu-bottom-nav>
+            <div class="contain" color="">
+                    <mu-container class="input_data" v-if="shift=='input_data'">
+                            <mu-flex align-items="center" style="padding-bottom: 8px;">
+                              <span style="margin-right: 16px;">Label Position:</span>
+                              <mu-radio v-model="labelPosition" style="margin-right: 16px;" value="top" label="Top"></mu-radio>
+                              <mu-radio v-model="labelPosition" style="margin-right: 16px;" value="left" label="Left"></mu-radio>
+                              <mu-radio v-model="labelPosition" style="margin-right: 16px;" value="right" label="Right"></mu-radio>
+                            </mu-flex>
+                            <mu-form :model="form" class="mu-demo-form" :label-position="labelPosition" label-width="100">
+                              <mu-form-item prop="input" label="Input">
+                                <mu-text-field v-model="form.input"></mu-text-field>
+                              </mu-form-item>
+                              <mu-form-item prop="select" label="Select">
+                                <mu-select v-model="form.select">
+                                  <mu-option v-for="option,index in options" :key="option" :label="option" :value="option"></mu-option>
+                                </mu-select>
+                              </mu-form-item>
+                              <mu-form-item prop="date" label="Date Time">
+                                <mu-date-input v-model="form.date" type="dateTime" actions></mu-date-input>
+                              </mu-form-item>
+                              <mu-form-item prop="radio" label="Radio">
+                                <mu-radio v-model="form.radio" value="male" label="Male"></mu-radio>
+                                <mu-radio v-model="form.radio" value="female" label="Female"></mu-radio>
+                              </mu-form-item>
+                              <mu-form-item prop="checkbox" label="Checkbox">
+                                <mu-checkbox v-model="form.checkbox" value="eat" label="Eat"></mu-checkbox>
+                                <mu-checkbox v-model="form.checkbox" value="sleep" label="Sleep"></mu-checkbox>
+                                <mu-checkbox v-model="form.checkbox" value="run" label="Run"></mu-checkbox>
+                                <mu-checkbox v-model="form.checkbox" value="movie" label="Movie"></mu-checkbox>
+                              </mu-form-item>
+                              <mu-form-item prop="switch" label="Switch">
+                                <mu-switch v-model="form.switch"></mu-switch>
+                              </mu-form-item>
+                              <mu-form-item prop="slider" label="Slider">
+                                <mu-slider v-model="form.slider"></mu-slider>
+                              </mu-form-item>
+                              <mu-form-item prop="textarea" label="Textarea">
+                                <mu-text-field multi-line :rows="3" :rows-max="6" v-model="form.textarea"></mu-text-field>
+                              </mu-form-item>
+                            </mu-form>
+                    </mu-container>
+                    <mu-container class="leaderboard" v-if="shift=='leaderboard'">
+                        <mu-paper :z-depth="1">
+                                <mu-data-table :columns="columns" :sort.sync="sort" @sort-change="handleSortChange" :data="list">
+                                    <template slot-scope="scope">
+                                    <td>{{scope.row.name}}</td>
+                                    <td class="is-right">{{scope.row.calories}}</td>
+                                    <td class="is-right">{{scope.row.fat}}</td>
+                                    <td class="is-right">{{scope.row.carbs}}</td>
+                                    <td class="is-right">{{scope.row.protein}}</td>
+                                    <td class="is-right">{{scope.row.iron}}%</td>
+                                    </template>
+                                </mu-data-table>
+                                </mu-paper>
+                    </mu-container>
+                    <mu-container class="laughtpictures" v-show="shift=='laughtpictures'">
+                        <div v-for="item in list_laughtpictures" :key="item.id">
+                                <img :src="item.image"/>
+                        </div>
+                    </mu-container>
+                </div>
+            <!-- </mu-container> -->
+        </div>
+    </div>
+</body>
+<script src="../lib/vue.js"></script> 
+<script src="../muse-ui/muse-ui.js"></script>
+<script src="../js/main.js"></script>
+
+<script>
+</script>
+</html>
