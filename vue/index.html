@@ -9,21 +9,21 @@
     <link rel="stylesheet" href="muse-ui/material-icons.css">
     <link rel="stylesheet" href="muse-ui/muse-ui.css">
     <link rel="stylesheet" href="muse-ui/robotoFont_style.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <div id="app">
-        <mu-appbar style="width: 100%;" color="primary">
-            <mu-button icon slot="left">
-              <mu-icon value="menu"></mu-icon>
-            </mu-button>
-            <mu-button flat slot="right">LOGIN</mu-button>
-        </mu-appbar>
-        <div class="contain">
-            <img :src="backgroundimg" alt="" srcset="">
+        <div v-resize="resize"></div>
+        <div class="contain" v-bind:style="'height:' + heightchange + 'px'+';'+'width:' + widthchange + 'px'" >
+                <img class="backgroundimg" :src="backgroundimg" v-bind:style="'height:' + heightchange + 'px'+';'+'width:' + widthchange + 'px'">
+                <mu-button class="start" @click="tomainpage" round color="primary">Let`s start</mu-button>
         </div>
     </div>
 </body>
 <script src="lib/vue.js"></script> 
+<script src="lib/vue-router.js"></script>
 <script src="muse-ui/muse-ui.js"></script>
 <script src="js/index.js"></script>
+<script type="text/javascript">    
+</script> 
 </html>
