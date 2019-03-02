@@ -1,0 +1,25 @@
+.main{
+    height: 100%;
+}
+.contain{
+    height: 60%;
+    overflow:scroll;
+}
+.input_data{
+    height: 60%;
+    overflow:scroll;
+}
+.laughtpictures{
+    background-color:#fafafa;
+
+}
+
+laughtpictures-contain {
+    top: 5%；
+}
+iframe{
+    width: 100%;
+    /* position: absolute;  */
+    margin-top: -120px; 
+    /* left: -680px; */
+}

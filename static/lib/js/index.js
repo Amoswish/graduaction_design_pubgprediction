@@ -1,7 +1,7 @@
 new Vue({
     el: '#app',
     data:{
-        backgroundimg:'../static/res/backgroundimg/backgroudimgheight.jpg',
+        backgroundimg:'../../static/res/backgroundimg/backgroudimgheight.jpg',
         screenwidth:100,
         screenheight:100,
     },
@@ -18,10 +18,10 @@ new Vue({
         this.screenwidth = window.innerWidth;
         this.screenheight = window.innerHeight;
         if(this.screenwidth/this.screenheight>1){
-            this.backgroundimg = "../static/res/backgroundimg/backgroundimgwidth.jpeg"
+            this.backgroundimg = "../../static/res/backgroundimg/backgroundimgwidth.jpeg"
         }
         else{
-            this.backgroundimg = '../static/res/backgroundimg/backgroudimgheight.jpg'
+            this.backgroundimg = '../../static/res/backgroundimg/backgroudimgheight.jpg'
         }
     },
     methods: { 
@@ -30,15 +30,11 @@ new Vue({
             this.screenwidth = window.innerWidth;
             this.screenheight = window.innerHeight;
             if(this.screenwidth/this.screenheight>1){
-                this.backgroundimg = "../static/res/backgroundimg/backgroundimgwidth.jpeg"
+                this.backgroundimg = "../../static/res/backgroundimg/backgroundimgwidth.jpeg"
             }
             else{
-                this.backgroundimg = '../static/res/backgroundimg/backgroudimgheight.jpg'
+                this.backgroundimg = '../../static/res/backgroundimg/backgroudimgheight.jpg'
             }
         },
-        tomainpage(){
-            var url =  window.location.href;
-            window.location.href=url.split("/index.html")[0]+"/main_html/main.html";
-        }
     },
 });

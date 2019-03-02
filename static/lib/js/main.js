@@ -1,6 +1,8 @@
 new Vue({
     el: '#app',
     data: {
+      screenwidth:100,
+      screenheight:100,
         options: [
             'Option 1', 'Option 2', 'Option 3', 'Option 4',
             'Option 5', 'Option 6', 'Option 7', 'Option 8',
@@ -88,20 +90,37 @@ new Vue({
                 iron: 2
               },
           ],
-        list_laughtpictures:[
-            {image:'../../static/res/laughtpicture/6a0f5341-42ac-4dcf-83cd-f92f6fa8876c.gif'},
-            {image:'../../static/res/laughtpicture/6045d699-54c7-4653-a5c3-3ea94889d69f.gif'},
-            {image:'../../static/res/laughtpicture/52869ff5-8110-45fa-8267-d2c93e2fef0f.gif'},
-            {image:'../../static/res/laughtpicture/9592291d-9f88-4c42-adc4-31736c72f96c.gif'},
-            {image:'../../static/res/laughtpicture/20788815-9488-4e75-8368-7ce34274a025.gif'},
-            {image:'../../static/res/laughtpicture/u=1473546188,1786515403&fm=173&s=B2165384080706D8462479810300F0CA&w=605&h=706&img.jpeg'},
-            {image:'../../static/res/laughtpicture/u=3071455273,120725408&fm=27&gp=0.jpg'},
-        ],
+        },
+        computed:{
+          widthchange:function(){
+              return this.screenwidth;
+          },
+          heightchange:function(){
+              return this.screenheight;
+          },
+        },
+        mounted () {
+          //适配主页背景图片格式
+          this.screenwidth = window.innerWidth;
+          this.screenheight = window.innerHeight;
+          console.log(this.screenheight);
+          
         },
         methods: {
         handleSortChange ({name, order}) {
             this.list = this.list.sort((a, b) => order === 'asc' ? a[name] - b[name] : b[name] - a[name]);
+        },
+        resize () {
+          this.screenwidth = window.innerWidth;
+          this.screenheight = window.innerHeight;
+          if(this.screenwidth/this.screenheight>1){
+              this.backgroundimg = "../../static/res/backgroundimg/backgroundimgwidth.jpeg"
           }
+          else{
+              this.backgroundimg = '../../static/res/backgroundimg/backgroudimgheight.jpg'
+          }
+      },
+
     },
     watch: {
     },

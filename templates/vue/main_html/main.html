@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css"> -->
-    <link rel="stylesheet" href="../muse-ui/material-icons.css">
-    <link rel="stylesheet" href="../muse-ui/muse-ui.css">
-    <link rel="stylesheet" href="../muse-ui/robotoFont_style.css">
-    <link rel="stylesheet" href="../css/main_.css">
+    <link rel="stylesheet" href="../../../static/lib/muse-ui/material-icons.css">
+    <link rel="stylesheet" href="../../../static/lib/muse-ui/muse-ui.css">
+    <link rel="stylesheet" href="../../../static/lib/muse-ui/robotoFont_style.css">
+    <link rel="stylesheet" href="../../../static/lib/css/main_.css">
 </head>
 <body>
     <div id="app">
@@ -75,8 +75,12 @@
                                 </mu-paper>
                     </mu-container>
                     <mu-container class="laughtpictures" v-show="shift=='laughtpictures'">
-                        <div v-for="item in list_laughtpictures" :key="item.id">
+                        <!-- <div  v-for="item in list_laughtpictures" :key="item.id">
                                 <img :src="item.image"/>
+                        </div> -->
+                        <div v-resize="resize"></div>
+                        <div class="laughtpictures-contain">
+                          <iframe  :height="screenheight" src="http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&ie=gb18030&word=%B3%D4%BC%A6%B8%E3%D0%A6%CD%BC%C6%AC&fr=ala&ala=2&alatpl=sp&pos=0" frameborder="0"></iframe>
                         </div>
                     </mu-container>
                 </div>
@@ -84,9 +88,9 @@
         </div>
     </div>
 </body>
-<script src="../lib/vue.js"></script> 
-<script src="../muse-ui/muse-ui.js"></script>
-<script src="../js/main.js"></script>
+<script src="../../../static/lib/vue.js"></script> 
+<script src="../../../static/lib/muse-ui/muse-ui.js"></script>
+<script src="../../../static/lib/js/main.js"></script>
 
 <script>
 </script>
