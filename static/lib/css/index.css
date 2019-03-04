@@ -1,8 +1,7 @@
 body{
     text-align: center;
-    background:ddd;
+    background:white;
     overflow: hidden;
-    background: #blue;
 }
 #canvas{
     display: inline-block;
@@ -11,8 +10,9 @@ body{
     
 }
 .start{
-    /* width: 30%; */
-    left: 40%;
-    bottom: 15%;
+    width: 100%;
+    bottom: 10%;
     position: fixed;
+    align:center;
+    left: 0px;
 }

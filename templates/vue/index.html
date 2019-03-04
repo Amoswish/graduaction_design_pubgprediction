@@ -17,9 +17,10 @@
         
         <div class="contain" v-bind:style="'height:' + heightchange + 'px'+';'+'width:' + widthchange + 'px'" >
             <canvas id="canvas"></canvas>    
-            <a href="main" class="start"><mu-button   round color="primary">Let`s Start</mu-button></a>
             <!-- <img class="backgroundimg" :src="backgroundimg" v-bind:style="'height:' + heightchange + 'px'+';'+'width:' + widthchange + 'px'"> -->
-                
+            <div class="start" v-bind:style="'width:' + widthchange + 'px'">
+                <a href="main" ><mu-button   round color="primary">Let`s Start</mu-button></a>
+            </div>    
         </div>
     </div>
 </body>

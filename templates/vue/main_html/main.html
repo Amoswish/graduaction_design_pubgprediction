@@ -18,6 +18,7 @@
                     <mu-bottom-nav-item value="input_data" title="input_data" icon="equalizer"></mu-bottom-nav-item>
                     <mu-bottom-nav-item value="leaderboard" title="leaderboard" icon="books"></mu-bottom-nav-item>
                     <mu-bottom-nav-item value="laughtpictures" title="laughtpictures" icon="photo"></mu-bottom-nav-item>
+                    <mu-bottom-nav-item value="mapchart" title="mapchart" icon="wallpaper"></mu-bottom-nav-item>
                 </mu-bottom-nav>
             <div class="contain" color="">
                     <mu-container class="input_data" v-if="shift=='input_data'">
@@ -82,6 +83,9 @@
                         <div class="laughtpictures-contain">
                           <iframe  :height="screenheight" src="http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&ie=gb18030&word=%B3%D4%BC%A6%B8%E3%D0%A6%CD%BC%C6%AC&fr=ala&ala=2&alatpl=sp&pos=0" frameborder="0"></iframe>
                         </div>
+                    </mu-container>
+                    <mu-container class="mapchart" v-if="shift=='mapchart'">
+                      
                     </mu-container>
                 </div>
             <!-- </mu-container> -->

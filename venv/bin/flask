@@ -1,5 +1,4 @@
-#!/Users/wuhao/PycharmProjects/graduction_design/venv/bin/python
-
+#!/Users/wuhao/PycharmProjects/graduaction_design_pubgprediction/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
