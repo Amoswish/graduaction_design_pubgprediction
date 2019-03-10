@@ -15,11 +15,12 @@
 }
 
 laughtpictures-contain {
-    top: 5%；
+    top: 5%;
 }
 iframe{
     width: 100%;
     /* position: absolute;  */
     margin-top: -120px; 
     /* left: -680px; */
+    height: 80%;
 }
