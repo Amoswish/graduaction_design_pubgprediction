@@ -134,9 +134,11 @@ def generate_3d_random_point():
             random.randint(0, 100)]
 
 @app.route('/leaderboardjson', methods=['GET','POST'])
-def getjson():
-    leaderboardjson = json.load('static/res/spider_save_leaderboard_data/leaderboard-fpp-1.json')
-    return jsonify(leaderboardjson)
+def sendjson():
+    with open('static/res/spider_save_leaderboard_data/leaderboard-fpp-1.json', 'r') as f:
+        leaderboardjson = json.load(f)
+        return jsonify(leaderboardjson)
+
 if __name__ == '__main__':
     # app.debug = True
     app.run(debug = True)

@@ -6,45 +6,67 @@ new Vue({
     data: {
       screenwidth:100,
       screenheight:100,
-      leaderboard_data:[
-        ["1", "Murad_Gazdiev", "7,415", "4818", "1.6%", "13.0%", "1.41", "173", "#45.4"],
-        ["1", "Murad_Gazdiev", "7,415", "4818", "1.6%", "13.0%", "1.41", "173", "#45.4"],
-        ["1", "Murad_Gazdiev", "7,415", "4818", "1.6%", "13.0%", "1.41", "173", "#45.4"],
-        ["1", "Murad_Gazdiev", "7,415", "4818", "1.6%", "13.0%", "1.41", "173", "#45.4"],
-        ["1", "Murad_Gazdiev", "7,415", "4818", "1.6%", "13.0%", "1.41", "173", "#45.4"],
-      ],
-        options: [
-            'Option 1', 'Option 2', 'Option 3', 'Option 4',
-            'Option 5', 'Option 6', 'Option 7', 'Option 8',
-            'Option 9', 'Option 10'
-            ],
-        labelPosition: 'top',
-        form: {
-            input: '',
-            select: '',
-            date: '',
-            radio: '',
-            checkbox: [],
-            switch: false,
-            slider: 30,
-            textarea: ''
+      leaderboard_data:[],
+      input_data_form:{
+        assists: 30,
+        boosts: 30,
+        damageDealt: 30,
+        DBNOs: 30,
+        headshotKills: 30,
+        heals: 30,
+        killPlace: 30,
+        killPointsElo: 30,
+        kills: 30,
+        killStreaks: 30,
+        longestKill: 30,
+        matchDuration: 30,
+        matchType_select:'',
+        maxPlace: 30,
+        numGroups: 30,
+        rankPointsElo: 30,
+        revives: 30,
+        rideDistance: 30,
+        roadKills: 30,
+        swimDistance: 30,
+        teamKills: 30,
+        vehicleDestroys: 30,
+        walkDistance: 30,
+        weaponsAcquired: 30,
+        winPoints: 30,
+        winPlacePerc: 30,
+      },
+      matchType_type: [
+        'Option 1', 'Option 2', 'Option 3', 'Option 4',
+        'Option 5', 'Option 6', 'Option 7', 'Option 8',
+        'Option 9', 'Option 10'
+        ],
+      labelPosition: 'top',
+      form: {
+          input: '',
+          select: '',
+          date: '',
+          radio: '',
+          checkbox: [],
+          switch: false,
+          slider: 30,
+          textarea: ''
+      },
+      shift: 'input_data',
+      sort: {
+          name: '',
+          order: 'asc'
         },
-        shift: 'input_data',
-        sort: {
-            name: '',
-            order: 'asc'
-          },
-        leaderboard_columns: [
-              { title: '排名', width: 200, name: 'name' },
-              { title: '用户🆔', name: 'playerid', width: 126, align: 'center', sortable: true },
-              { title: 'SP', name: 'plyaersp', width: 126, align: 'center', sortable: true },
-              { title: '游戏场数', name: 'playergametimes', width: 126, align: 'center', sortable: true },
-              { title: '胜%', name: 'winpercent', width: 126, align: 'center', sortable: true },
-              { title: 'Top 10%', name: 'playertop10percent', width: 126, align: 'center', sortable: true },
-              { title: 'K/D', name: 'playerkd', width: 126, align: 'center', sortable: true },
-              { title: '伤害', name: 'playerdamage', width: 126, align: 'center', sortable: true },
-              { title: '平均排名', name: 'playeravgrank', width: 126, align: 'center', sortable: true },
-          ],
+      leaderboard_columns: [
+            { title: '排名', width: 200, name: 'name' },
+            { title: '用户🆔', name: 'playerid', width: 126, align: 'center', sortable: true },
+            { title: 'SP', name: 'plyaersp', width: 126, align: 'center', sortable: true },
+            { title: '游戏场数', name: 'playergametimes', width: 126, align: 'center', sortable: true },
+            { title: '胜%', name: 'winpercent', width: 126, align: 'center', sortable: true },
+            { title: 'Top 10%', name: 'playertop10percent', width: 126, align: 'center', sortable: true },
+            { title: 'K/D', name: 'playerkd', width: 126, align: 'center', sortable: true },
+            { title: '伤害', name: 'playerdamage', width: 126, align: 'center', sortable: true },
+            { title: '平均排名', name: 'playeravgrank', width: 126, align: 'center', sortable: true },
+        ],
     },
     computed:{
       widthchange:function(){
@@ -59,7 +81,6 @@ new Vue({
       this.screenwidth = window.innerWidth;
       this.screenheight = window.innerHeight;
       console.log(this.screenheight);
-      
     },
     methods: {
         handleSortChange ({name, order}) {
@@ -97,13 +118,15 @@ new Vue({
     watch:{
       shift:function(newshift,oldshift){
         if(newshift=='leaderboard'){
-          axios.get('/leaderboardjson')
-            .then(function (response) {
-              console.log(response);
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+            _this = this
+            axios.get('/leaderboardjson')
+                .then(function (response) {
+                  console.log(response.data);
+                  _this.leaderboard_data = response.data
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
         }
       },
     },

@@ -28,112 +28,115 @@
                               <mu-radio v-model="labelPosition" style="margin-right: 16px;" value="left" label="Left"></mu-radio>
                               <mu-radio v-model="labelPosition" style="margin-right: 16px;" value="right" label="Right"></mu-radio>
                             </mu-flex>
-                            <mu-form :model="form" class="mu-demo-form" :label-position="labelPosition" label-width="100">
+                            <mu-form :model="input_data_form" class="mu-demo-form" :label-position="labelPosition" label-width="100">
                               <!-- assists助攻数 -->
                               <mu-form-item prop="slider" label="助攻数">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.assists"></mu-slider>
                               </mu-form-item>
                               <!-- boosts使用能量道具数量 -->
                               <mu-form-item prop="slider" label="使用能量道具数量">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.boosts"></mu-slider>
                               </mu-form-item>
                               <!-- damageDealt总的伤害 -->
                               <mu-form-item prop="slider" label="总的伤害">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.damageDealt"></mu-slider>
                               </mu-form-item>
                               <!-- DBNOs击倒敌人数量 -->
                               <mu-form-item prop="slider" label="击倒敌人数量">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.DBNOs"></mu-slider>
                               </mu-form-item>
                               <!-- headshotKills爆头数 -->
                               <mu-form-item prop="slider" label="爆头数">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.headshotKills"></mu-slider>
                               </mu-form-item>
                               <!-- heals使用治疗药品数量 -->
                               <mu-form-item prop="slider" label="使用治疗药品数量">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.heals"></mu-slider>
                               </mu-form-item>
                               <!-- killPlace本场比赛杀敌排行 -->
                               <mu-form-item prop="slider" label="本场比赛杀敌排行">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.killPlace"></mu-slider>
                               </mu-form-item>
                               <!-- killPointsElo杀敌排名 -->
                               <mu-form-item prop="slider" label="杀敌排名">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.killPointsElo"></mu-slider>
                               </mu-form-item>
                               <!-- kills杀敌数 -->
                               <mu-form-item prop="slider" label="杀敌数">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.kills"></mu-ssslider>
                               </mu-form-item>
                               <!-- killStreaks连续杀敌数 -->
                               <mu-form-item prop="slider" label="连续杀敌数">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.killStreaks"></mu-slider>
                               </mu-form-item>
                               <!-- longestKill最远杀敌距离 -->
                               <mu-form-item prop="slider" label="最远杀敌距离">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.longestKill"></mu-slider>
                               </mu-form-item>
                               <!-- matchDuration比赛时长 -->
                               <mu-form-item prop="slider" label="比赛时长">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.matchDuration"></mu-slider>
                               </mu-form-item>
                               <!-- matchType比赛类型（小组人数） -->
                               <mu-form-item prop="select" label="比赛类型">
-                                <mu-select v-model="form.select">
-                                  <mu-option v-for="option,index in options" :key="option" :label="option" :value="option"></mu-option>
+                                <mu-select v-model="input_data_form.matchType_select">
+                                  <mu-option  label="单排" value="solo"></mu-option>
+                                  <mu-option  label="双排" value="duo"></mu-option>
+                                  <mu-option  label="四排" value="squad"></mu-option>
+                                  <!-- <mu-option v-for="option,index in matchType_type" :key="option" :label="option" :value="option"></mu-option> -->
                                 </mu-select>
                               </mu-form-item>
                               <!-- maxPlace本局最差名次 -->
                               <mu-form-item prop="slider" label="本局最差名次">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.maxPlace"></mu-slider>
                               </mu-form-item>
                               <!-- numGroups小组数目 -->
                               <mu-form-item prop="slider" label="小组数目">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.numGroups"></mu-slider>
                               </mu-form-item>
                               <!-- rankPointsElo排名 -->
                               <mu-form-item prop="slider" label="Elo排名">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.rankPointsElo"></mu-slider>
                               </mu-form-item>
                               <!-- revives救活队友的次数 -->
                               <mu-form-item prop="slider" label="救活队友的次数">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.revives"></mu-slider>
                               </mu-form-item>
                               <!-- rideDistance驾车距离 -->
                               <mu-form-item prop="slider" label="驾车距离">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.rideDistance"></mu-slider>
                               </mu-form-item>
                               <!-- roadKills驾车杀敌数 -->
                               <mu-form-item prop="slider" label="驾车杀敌数">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.roadKills"></mu-slider>
                               </mu-form-item>
                               <!-- swimDistance游泳距离 -->
                               <mu-form-item prop="slider" label="游泳距离">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.swimDistance"></mu-slider>
                               </mu-form-item>
                               <!-- teamKills杀死队友的次数 -->
                               <mu-form-item prop="slider" label="杀死队友的次数">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.teamKills"></mu-slider>
                               </mu-form-item>
                               <!-- vehicleDestroys毁坏机动车的数量 -->
                               <mu-form-item prop="slider" label="毁坏机动车的数量">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.vehicleDestroys"></mu-slider>
                               </mu-form-item>
                               <!-- walkDistance步行距离 -->
                               <mu-form-item prop="slider" label="步行距离">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.walkDistance"></mu-slider>
                               </mu-form-item>
                               <!-- weaponsAcquired收集武器数量 -->
                               <mu-form-item prop="slider" label="收集武器数量">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.weaponsAcquired"></mu-slider>
                               </mu-form-item>
                               <!-- winPoints胜率Elo排名 -->
                               <mu-form-item prop="slider" label="胜率Elo排名">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.winPoints"></mu-slider>
                               </mu-form-item>
                               <!-- winPlacePerc百分比排名 -->
                               <mu-form-item prop="slider" label="百分比排名">
-                                <mu-slider v-model="form.slider"></mu-slider>
+                                <mu-slider v-model="input_data_form.winPlacePerc"></mu-slider>
                               </mu-form-item>
                               
                               <!-- <mu-form-item prop="input" label="Input">
