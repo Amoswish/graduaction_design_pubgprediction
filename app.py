@@ -11,6 +11,7 @@ from pyecharts_javascripthon.api import TRANSLATOR
 import lightgbm
 from sklearn.externals import joblib
 #from pyecharts.constants import DEFAULT_HOST #这句去掉
+import json
 LOCAL_HOST = '../static/lib/jupyter-echarts-master/echarts'
 app = Flask(__name__)
 cors = CORS(app, resources={r"/getMsg": {"origins": "*"}})
@@ -24,6 +25,7 @@ def index():
 @app.route('/main')
 def main_html():
     # return render_template('vue/main_html/main.html')
+    # print("sss")
     return send_file("templates/vue/main_html/main.html")
 
 @app.route('/getMsg', methods=['GET', 'POST'])
@@ -130,6 +132,11 @@ def generate_3d_random_point():
     return [random.randint(0, 100),
             random.randint(0, 100),
             random.randint(0, 100)]
+
+@app.route('/leaderboardjson', methods=['GET','POST'])
+def getjson():
+    leaderboardjson = json.load('static/res/spider_save_leaderboard_data/leaderboard-fpp-1.json')
+    return jsonify(leaderboardjson)
 if __name__ == '__main__':
     # app.debug = True
     app.run(debug = True)
