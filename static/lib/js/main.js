@@ -15,7 +15,7 @@ new Vue({
         headshotKills: 30,
         heals: 30,
         killPlace: 30,
-        killPointsElo: 30,
+        killPoints: 30,
         kills: 30,
         killStreaks: 30,
         longestKill: 30,
@@ -23,7 +23,7 @@ new Vue({
         matchType_select:'',
         maxPlace: 30,
         numGroups: 30,
-        rankPointsElo: 30,
+        rankPoints: 30,
         revives: 30,
         rideDistance: 30,
         roadKills: 30,
@@ -33,12 +33,9 @@ new Vue({
         walkDistance: 30,
         weaponsAcquired: 30,
         winPoints: 30,
-        winPlacePerc: 30,
       },
       matchType_type: [
-        'Option 1', 'Option 2', 'Option 3', 'Option 4',
-        'Option 5', 'Option 6', 'Option 7', 'Option 8',
-        'Option 9', 'Option 10'
+        '单排', '双排', '四排'
         ],
       labelPosition: 'top',
       form: {
@@ -98,16 +95,24 @@ new Vue({
           console.log(this.screenheight);
         },
         submit(){
-            var that = this;
+            let _this = this;
             // 对应 Python 提供的接口，这里的地址填写下面服务器运行的地址，本地则为127.0.0.1，外网则为 your_ip_address
-            const path = 'http://127.0.0.1:5000/getMsg';
-            axios.get(path).then(function (response) {
+            const path = '/getMsg';
+            let params = new URLSearchParams();
+            console.log(_this.input_data_form)
+            //将obj转化为array
+            for(let key in _this.input_data_form){
+                params.append(key,_this.input_data_form[key])
+            }
+
+            axios.post(path,params)
+            .then(function (response) {
                 // 这里服务器返回的 response 为一个 json object，可通过如下方法需要转成 json 字符串
                 // 可以直接通过 response.data 取key-value
                 // 坑一：这里不能直接使用 this 指针，不然找不到对象
                 var msg = response.data.msg;
                 // 坑二：这里直接按类型解析，若再通过 JSON.stringify(msg) 转，会得到带双引号的字串
-                that.serverResponse = msg;
+                _this.serverResponse = msg;
 
                 alert('Success ' + response.status + ', ' + response.data + ', ' + msg);
                 }).catch(function (error) {
@@ -118,15 +123,16 @@ new Vue({
     watch:{
       shift:function(newshift,oldshift){
         if(newshift=='leaderboard'){
-            _this = this
-            axios.get('/leaderboardjson')
-                .then(function (response) {
-                  console.log(response.data);
-                  _this.leaderboard_data = response.data
-                })
-                .catch(function (error) {
-                  console.log(error);
-                });
+            let _this = this
+            const path = '/leaderboardjson'
+            axios.get(path)
+            .then(function (response) {
+              console.log(response.data);
+              _this.leaderboard_data = response.data
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
         }
       },
     },
