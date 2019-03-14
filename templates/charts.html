@@ -18,8 +18,13 @@
         .chart{
             position: absolute;
             top: 0px;
-            background: url("{{ url_for('static',filename='../static/res/charts-map/erangel.jpg') }}") no-repeat center!important;/*注意：最高权重必须要给，不然样式会被覆盖掉*/
-            background-size: 100% 100%!important; /*注意：背景图大小宽高都给到100%,且加上最高权重*/
+            background: url("{{ url_for('static',filename='../static/res/charts-map/'+chart_name+'.jpg') }}") no-repeat center!important;/*注意：最高权重必须要给，不然样式会被覆盖掉*/
+            background-size: 80% 82%!important; /*注意：背景图大小宽高都给到100%,且加上最高权重*/
+            background-position:center;
+            {#-moz-transform:rotate(180deg);#}
+            {#-webkit-transform:rotate(180deg);#}
+            {#transform:rotate(180deg);#}
+            {#filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);#}
         }
     </style>
 </head>

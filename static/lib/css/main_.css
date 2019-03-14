@@ -17,10 +17,22 @@
 laughtpictures-contain {
     top: 5%;
 }
-iframe{
+.laughtpicture_iframe{
     width: 100%;
     /* position: absolute;  */
     margin-top: -120px; 
+    top: 5%;
     /* left: -680px; */
     /* height: 80%; */
+}
+.chartofmap_iframe{
+    width: 100%;
+    /* position: absolute;  */
+    margin-top: 5%;
+    /* left: -680px; */
+    /* height: 80%; */
+}
+.leaderboard_mode_teamsize{
+    margin-top: 4%;
+    letter-spacing:20%;
 }
